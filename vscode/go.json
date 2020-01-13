@@ -1,0 +1,69 @@
+{
+    "read only cannel interface": {
+        "prefix": "rchn",
+        "body": [
+            "<-chan ${1:interface{}}",
+        ],
+        "description": ""
+    },
+    "write only cannel interface": {
+        "prefix": "wchn",
+        "body": [
+            "chan<- ${1:interface{}}",
+        ],
+        "description": ""
+    },
+    "make channel": {
+        "prefix": "mkc",
+        "body": [
+            "make(chan ${1:interface{}})",
+        ],
+        "description": ""
+    },
+    "defer close": {
+        "prefix": "dc",
+        "body": [
+            "defer close($1)",
+        ],
+        "description": ""
+    },
+    "defer cancel": {
+        "prefix": "dcl",
+        "body": [
+            "defer cancel()",
+        ],
+        "description": ""
+    },
+    "select with done case": {
+        "prefix": "sld",
+        "body": [
+            "select {",
+            "case <- done:",
+            "\treturn",
+            "case $1 :",
+            "}",
+        ],
+        "description": ""
+    },
+    "iq": {
+        "prefix": "iq",
+        "body": [
+            ":= ",
+        ],
+        "description": ""
+    },
+    "context withcancel declare": {
+        "prefix": "ctxc",
+        "body": [
+            "ctx, cancel := context.WithCancel(context.Background())",
+        ],
+        "description": ""
+    },
+    "context withtimeout declare": {
+        "prefix": "ctxt",
+        "body": [
+            "ctx, cancel := context.WithTimeout(ctx, ${1:})",
+        ],
+        "description": ""
+    },
+}
