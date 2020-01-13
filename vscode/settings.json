@@ -2,7 +2,7 @@
     "window.menuBarVisibility": "toggle",
     "workbench.statusBar.visible": true,
     "workbench.activityBar.visible": true,
-    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    // "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
     // "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe"
     // "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\cmd.exe",
     "window.zoomLevel": 0,
@@ -33,11 +33,26 @@
         "comments": false,
         "strings": false
     },
-
     //golang
     "go.gopath": "/home/kuzutt/go",
+    "go.goroot": "/usr/local/go",
     "go.formatOnSave": true,
     "go.testFlags": [
         "-v"
-    ]
+    ],
+
+    "go.useLanguageServer": true,
+    "[go]": {
+        "editor.snippetSuggestions": "none",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+        }
+    },
+    "gopls": {
+        "usePlaceholders": true, // add parameter placeholders when completing a function
+        // Experimental settings
+        "completeUnimported": true, // autocomplete unimported packages
+        "deepCompletion": true, // enable deep completion
+    }
 }
