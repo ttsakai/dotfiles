@@ -13,6 +13,7 @@
     "editor.accessibilitySupport": "off",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "kite.showWelcomeNotificationOnStartup": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": true,
     "files.associations": {
         "*.toml": "rust",
         // "*.html": "jinja"
