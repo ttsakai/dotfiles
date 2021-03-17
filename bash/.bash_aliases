@@ -1,0 +1,1 @@
+alias way=the-way
