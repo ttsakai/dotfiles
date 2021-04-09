@@ -1,0 +1,197 @@
+[[snippets]]
+  description = "azure list vm "
+  command = "az vm list -g <resource_group=gsa-sw> -o table --query [].[name,storageProfile.imageReference] "
+  tag = ["az"]
+  output = ""
+
+[[snippets]]
+  description = "azure vm details"
+  command = "az vm list -g <resource_group=gsa-sw> -o yaml --query \"[?name=='<hostname>'    ]\""
+  tag = ["az"]
+  output = ""
+
+[[snippets]]
+  description = "gcloud projects list"
+  command = "gcloud projects list | grep -v sys-"
+  tag = ["gcloud"]
+  output = ""
+
+[[snippets]]
+  description = "gcloud container clusters list"
+  command = "gcloud container clusters list"
+  tag = ["gcloud"]
+  output = ""
+
+[[snippets]]
+  description = "gcloud container clusters get-credentials <cluster-name> --zone <zone=asia-northeast1>"
+  command = "gcloud container clusters get-credentials <cluster-name> --zone <zone=asia-northeast1>"
+  tag = ["gcloud"]
+  output = ""
+
+[[snippets]]
+  description = "list azure dns record-set"
+  command = "az network dns record-set list  --resource-group <resource-group> --zone-name <zone-name> -o table --query  [].[name,arecords]"
+  tag = ["az"]
+  output = ""
+
+[[snippets]]
+  description = "docker build from file"
+  command = "docker build -f <Dockerfile -t <image-name> ."
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "create postgres client container to k8s"
+  command = "kubectl run --generator=run-pod/v1 -it --rm --image=postgres dbdebugger-<name=tsakai> bash"
+  tag = ["k8s"]
+  output = ""
+
+[[snippets]]
+  description = "copy file from pod"
+  command = "kubectl cp <pod-name>:<filepath> <local-file-path=tmp.txt>"
+  tag = ["k8s"]
+  output = ""
+
+[[snippets]]
+  description = "delete context"
+  command = "kubectl config delete-context <context>"
+  tag = ["k8s"]
+  output = ""
+
+[[snippets]]
+  description = "create db client pod"
+  command = "kubectl run --generator=run-pod/v1 -it --rm --image=postgres dbdebugger-sre bash"
+  tag = ["k8s"]
+  output = ""
+
+[[snippets]]
+  description = "connect to database"
+  command = "psql -h <dbname> -U mrero mre"
+  tag = ["postgres"]
+  output = ""
+
+[[snippets]]
+  description = "copy mre db pass"
+  command = "kubectl get secret mre-boot -o yaml  | grep RO | cut -d\":\" -f2 | cut -d \" \" -f2 | base64 -D| pbcopy"
+  tag = ["k8s"]
+  output = ""
+
+[[snippets]]
+  description = "create a recode to dns"
+  command = "az network dns record-set a add-record -g <resource-group> -z <dns-zone> -n <name> -a <ipv4-address>"
+  tag = ["az"]
+  output = ""
+
+[[snippets]]
+  description = "ssh to conmpute engin instance"
+  command = "gcloud  compute ssh --zone asia-northeast1-a  <instance-name=halyard>"
+  tag = ["gcloud"]
+  output = ""
+
+[[snippets]]
+  description = "list service account json key"
+  command = "gcloud iam service-accounts keys list  --iam-account  <service-account>"
+  tag = ["gcloud", "iam"]
+  output = ""
+
+[[snippets]]
+  description = "activate service account by key file"
+  command = "gcloud auth activate-service-account --key-file <KEY_FILE>"
+  tag = ["gcloud", "iam"]
+  output = ""
+
+[[snippets]]
+  description = "list vm"
+  command = "gcloud compute instances list"
+  tag = ["gcloud", "vm"]
+  output = ""
+
+[[snippets]]
+  description = "encrypt text with kms sync key"
+  command = "gcloud kms encrypt  --location=<location=asia-northeast1>  --keyring=<key-ring-name>  --key=<key-name>  --plaintext-file=<input-file-name>  --ciphertext-file=<output-file-name=output.enc>"
+  tag = ["gcloud", "kms"]
+  output = ""
+
+[[snippets]]
+  description = "encrypt text with kms sync key"
+  command = "gcloud kms decrypt  --location=<location=asia-northeast1>  --keyring=<key-ring-name>  --key=<key-name>  --cuogertext-file=<input-file-name>  --plaintext-file=<output-file-name=output.enc>"
+  tag = ["gcloud", "kms"]
+  output = ""
+
+[[snippets]]
+  description = "create random string"
+  command = "od -vAn -to1 </dev/urandom | tr -d \" \" | fold -w <length=100> | head -n 1| base64"
+  tag = ["tips"]
+  output = ""
+
+[[snippets]]
+  description = "clear pubsub subcripttions"
+  command = "gcloud pubsub subscriptions seek <subscription path> --time=$(date +%Y-%m-%dT%H:%M:%S)"
+  tag = ["gcloud", "pubsub"]
+  output = ""
+
+[[snippets]]
+  description = "generate terraform variables"
+  command = "LF=$(printf '\\\\\\012_') && LF=${LF%_} && grep \"var\\.\" *.tf | sed -E 's/^.*(var\\..[a-z_]+).*$/\\1/g' | sort | uniq  | sed  -E 's/var./variable /g' | sed  's/$/ { '\"$LF\"'}'\"$LF\"'/g'"
+  tag = ["terraform"]
+  output = ""
+
+[[snippets]]
+  description = "list cloudsql instances"
+  command = "gcloud sql  instances list"
+  tag = ["gcloud,sql"]
+  output = ""
+
+[[snippets]]
+  description = "list ssl cert and domains"
+  command = "gcloud compute ssl-certificates list"
+  tag = ["gcloud,", "loadbalancer,", "cert"]
+  output = ""
+
+[[snippets]]
+  description = "goutil oauth test"
+  command = "bash googleapi/oauth/tool/get_token_from_google.sh"
+  tag = ["goutil"]
+  output = ""
+
+[[snippets]]
+  description = "gcloud config set project "
+  command = "gcloud config set project <project_id>"
+  tag = ["gcloud", "project"]
+  output = ""
+
+[[snippets]]
+  description = "ssh key ed25519"
+  command = "ssh-keygen -t ed25519 -C <address=dev@*****.co>"
+  tag = ["ssh", "ed25519"]
+  output = ""
+
+[[snippets]]
+  description = "generate random string"
+  command = "openssl rand -base64 65000 | tr -d \"\\n\" | cut -c1-<lenght=256>"
+  tag = ["misc", "string"]
+  output = ""
+
+[[snippets]]
+  description = "list enabled service api"
+  command = "gcloud services  list --enabled"
+  tag = ["gcloud", "service"]
+  output = ""
+
+[[snippets]]
+  description = "docker run test container with bash"
+  command = "docker run --name test -it ubuntu /bin/bash"
+  tag = ["docker", "ubuntu"]
+  output = ""
+
+[[snippets]]
+  description = "list all images in default namespace https://kubernetes.io/ja/docs/tasks/access-application-cluster/list-all-running-container-images/"
+  command = "kubectl get pods  -o jsonpath=\"{..image}\" |tr -s '[[:space:]]' '\\n' |sort |uniq -c"
+  tag = ["k8s", "container"]
+  output = ""
+
+[[snippets]]
+  description = "list k8s resource requests/limits containers"
+  command = "kubectl get pod -o jsonpath='{range .items[*]  }{ .metadata.name }{\"\\t\"}{range .spec.containers[*] }{\"\\t\"}{.name}{\"\\t\"}{.resources.limits.cpu}{\"\\t\"}{.resources.limits.memory}{\"\\t\"}{.resources.requests.cpu}{\"\\t\"}{.resources.requests.memory}{\"\\n\"}' | column -t"
+  tag = ["k8s"]
+  output = ""
