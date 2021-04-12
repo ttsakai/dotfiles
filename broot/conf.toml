@@ -1,0 +1,51 @@
+[[verbs]]
+invocation = "root"
+key = "F9"
+internal = ":focus /"
+
+[[verbs]]
+invocation = "home"
+key = "ctrl-H"
+internal = ":focus ~"
+
+[[verbs]]
+key = "alt-j"
+internal = ":line_down"
+
+[[verbs]]
+invocation = "top"
+key = "F6"
+internal = ":select_first"
+
+[[verbs]]
+invocation = "bottom"
+key = "F7"
+internal = ":select_last"
+
+[[verbs]]
+invocation = "open"
+key = "ctrl-o"
+internal = ":open_stay"
+
+[[verbs]]
+invocation = "edit"
+key =  "ctrl-e" 
+shortcut = "e"
+external = "$EDITOR {file}"
+from_shell = true
+
+[[verbs]]
+key = "ctrl-j"
+execution = ":line_down"
+#
+[[verbs]]
+key = "ctrl-k"
+execution = ":line_up"
+#
+[[verbs]]
+key = "ctrl-d"
+execution = ":page_down"
+
+[[verbs]]
+key = "ctrl-u"
+execution = ":page_up"
