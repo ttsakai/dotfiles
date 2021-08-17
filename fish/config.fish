@@ -10,7 +10,7 @@ set -x EDITOR nvim
 set fish_function_path $fish_function_path "/usr/share/powerline/bindings/fish"
 
 # golang
-set GOPATH ~/go
+set GOPATH $HOME/go
 set PATH $PATH /usr/local/go/bin $GOPATH/bin
 
 # vagrant
@@ -27,3 +27,5 @@ export VISUAL=nvim
 alias vim=nvim
 alias vi=nvim
 alias tf=terraform
+
+fish_vi_key_bindings
