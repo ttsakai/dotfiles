@@ -32,7 +32,8 @@ invocation = "edit"
 key =  "ctrl-e" 
 shortcut = "e"
 external = "$EDITOR {file}"
-from_shell = true
+leave_broot = false
+apply_to = "file"
 
 [[verbs]]
 key = "ctrl-j"
@@ -49,3 +50,4 @@ execution = ":page_down"
 [[verbs]]
 key = "ctrl-u"
 execution = ":page_up"
+
