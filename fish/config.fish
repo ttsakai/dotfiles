@@ -6,7 +6,8 @@ set -g theme_display_date no
 set -g theme_display_cmd_duration no
 
 set PATH /usr/local/bin /usr/sbin $HOME/.cargo/bin $PATH ~/.config/nvim/pack/bundle/start/fzf/bin 
-set -x EDITOR nvim
+# set -x EDITOR nvim
+set -x EDITOR hx 
 set fish_function_path $fish_function_path "/usr/share/powerline/bindings/fish"
 
 # golang

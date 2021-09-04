@@ -1,3 +1,6 @@
+// icon_theme = "vscode"
+// FIXME: currently not working  
+
 [[verbs]]
 invocation = "root"
 key = "F9"
