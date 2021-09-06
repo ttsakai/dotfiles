@@ -72,6 +72,7 @@ alias vi=nvim
 alias tf=terraform
 alias kc=kubectl
 alias kx=kubectx
+alias br=broot
 alias gcd=gcloud
 alias gcpl='gcloud projects list'
 alias tw=the-way
