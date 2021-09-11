@@ -1,5 +1,5 @@
-// icon_theme = "vscode"
-// FIXME: currently not working  
+# icon_theme = "vscode"
+# FIXME: currently not working  
 
 [[verbs]]
 invocation = "root"
