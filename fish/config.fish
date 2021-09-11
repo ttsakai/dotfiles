@@ -70,5 +70,12 @@ export VISUAL=nvim
 alias vim=nvim
 alias vi=nvim
 alias tf=terraform
+alias kc=kubectl
+alias kx=kubectx
+alias br=broot
+alias gcd=gcloud
+alias gcpl='gcloud projects list'
+alias tw=the-way
+
 
 fish_vi_key_bindings
