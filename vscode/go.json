@@ -2,35 +2,35 @@
     "read only cannel interface": {
         "prefix": "rchn",
         "body": [
-            "<-chan ${1:interface{}}",
+            "<-chan ${1:interface{}}"
         ],
         "description": ""
     },
     "write only cannel interface": {
         "prefix": "wchn",
         "body": [
-            "chan<- ${1:interface{}}",
+            "chan<- ${1:interface{}}"
         ],
         "description": ""
     },
     "make channel": {
         "prefix": "mkc",
         "body": [
-            "make(chan ${1:interface{}})",
+            "make(chan ${1:interface{}})"
         ],
         "description": ""
     },
     "defer close": {
         "prefix": "dc",
         "body": [
-            "defer close($1)",
+            "defer close($1)"
         ],
         "description": ""
     },
     "defer cancel": {
         "prefix": "dcl",
         "body": [
-            "defer cancel()",
+            "defer cancel()"
         ],
         "description": ""
     },
@@ -41,14 +41,14 @@
             "case <- done:",
             "\treturn",
             "case $1 :",
-            "}",
+            "}"
         ],
         "description": ""
     },
     "iq": {
         "prefix": "iq",
         "body": [
-            ":= ",
+            ":= "
         ],
         "description": ""
     },
@@ -66,4 +66,17 @@
         ],
         "description": ""
     },
+    // mapの型定義
+    "map[string]int": {
+        "prefix": "mapsi",
+        "body": [
+            "map[string]int"
+        ]
+    },
+    "map[string]string": {
+        "prefix": "mapss",
+        "body": [
+            "map[string]string"
+        ]
+    }
 }
