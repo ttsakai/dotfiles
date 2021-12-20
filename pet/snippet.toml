@@ -195,3 +195,9 @@
   command = "kubectl get pod -o jsonpath='{range .items[*]  }{ .metadata.name }{\"\\t\"}{range .spec.containers[*] }{\"\\t\"}{.name}{\"\\t\"}{.resources.limits.cpu}{\"\\t\"}{.resources.limits.memory}{\"\\t\"}{.resources.requests.cpu}{\"\\t\"}{.resources.requests.memory}{\"\\n\"}' | column -t"
   tag = ["k8s"]
   output = ""
+
+[[snippets]]
+  description = "run postgres db docker "
+  command = "docker run --rm -d-p 15432:5432 -v postgres-tmp:/var/lib/postgresql/data -e POSTGRES_HOST_AUTH_METHOD=trust postgres:12-alpine"
+  tag = ["docker", "postgres"]
+  output = ""
