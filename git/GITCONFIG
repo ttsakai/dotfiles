@@ -1,12 +1,24 @@
 [user]
    name = ttsakai
-   email = masterkuzutt@gmail.com 
+   email = masterkuzutt@gmail.com
 [alias]
   co = checkout
   ci = commit
   st = status
   br = branch
   ad = add
+  pl = pull
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   type = cat-file -t
   dump = cat-file -p
+  delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|main|master'|xargs git branch -d; };f"
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[gc]
+	auto = 0
+[commit]
+	gpgsign = true
+

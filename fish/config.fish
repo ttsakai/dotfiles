@@ -51,16 +51,17 @@ set PATH /usr/local/bin /usr/sbin $HOME/.cargo/bin $PATH ~/.config/nvim/pack/bun
 # set -x EDITOR nvim
 set -x EDITOR hx 
 set fish_function_path $fish_function_path "/usr/share/powerline/bindings/fish"
+set -x GOOGLE_APPLICATION_CREDENTIALS ~/.config/gcloud/legacy_credentials/takahiro.sakai@swingmail.co/adc.json
 
 # golang
 set GOPATH $HOME/go
-set PATH $PATH /usr/local/go/bin $GOPATH/bin
+set PATH $PATH /usr/local/go/bin $GOPATH/bin /Users/takahirosakai/bin
 
 # vagrant
-set -x VAGRANT_WSL_WINDOWS_ACCESS_USER "desktop-ensaist\takahiro sakai"
-set -x VAGRANT_WSL_ENABLE_WINDOWS_ACCESS "1"
-set -x VAGRANT_WSL_WINDOWS_ACCESS_USER_HOME_PATH "/mnt/c/vagrant"
-set PATH $PATH "/mnt/c/Program Files/Oracle/VirtualBox" /mnt/c/Windows/System32/ /mnt/c/Windows/System32/WindowsPowerShell/v1.0/
+# set -x VAGRANT_WSL_WINDOWS_ACCESS_USER "desktop-ensaist\takahiro sakai"
+# set -x VAGRANT_WSL_ENABLE_WINDOWS_ACCESS "1"
+# set -x VAGRANT_WSL_WINDOWS_ACCESS_USER_HOME_PATH "/mnt/c/vagrant"
+# set PATH $PATH "/mnt/c/Program Files/Oracle/VirtualBox" /mnt/c/Windows/System32/ /mnt/c/Windows/System32/WindowsPowerShell/v1.0/
 
 powerline-setup
 
@@ -79,3 +80,35 @@ alias tw=the-way
 
 
 fish_vi_key_bindings
+
+
+function gcsp
+	command gcloud config set project  $argv[1]
+end
+
+function pex
+	command pet exec -q=$argv
+end
+# goenv
+# git clone https://github.com/syndbg/goenv.git ~/.goenv
+set -x GOENV_ROOT $HOME/.goenv
+set -x PATH $GOENV_ROOT/bin $PATH
+eval (goenv init - | source)
+set -x PATH $GOPATH/bin $PATH
+
+
+
+# pyenv
+set -Ux PYENV_ROOT $HOME/.pyenv
+set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+if command -v pyenv 1>/dev/null 2>&1
+    if status is-login && test -z "$TMUX"
+        pyenv init --path fish | source
+    end
+    pyenv init - fish | source
+    pyenv virtualenv-init - fish | source
+end
+
+
+# git 
+export GPG_TTY=(tty)
