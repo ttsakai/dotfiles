@@ -1,5 +1,4 @@
-# icon_theme = "vscode"
-# FIXME: currently not working  
+default_flags = "ghi"
 
 [[verbs]]
 invocation = "root"
@@ -26,17 +25,18 @@ key = "F7"
 internal = ":select_last"
 
 [[verbs]]
-invocation = "open"
+invocation="open_stay"
+shortcut="os"
 key = "ctrl-o"
-internal = ":open_stay"
+leave_broot=false
+execution="$EDITOR {file}"
 
 [[verbs]]
-invocation = "edit"
+invocation="open_stay"
 key =  "ctrl-e" 
-shortcut = "e"
+sihortcut = "e"
 external = "$EDITOR {file}"
-leave_broot = false
-apply_to = "file"
+leave_broot=false
 
 [[verbs]]
 key = "ctrl-j"
@@ -53,4 +53,3 @@ execution = ":page_down"
 [[verbs]]
 key = "ctrl-u"
 execution = ":page_up"
-
