@@ -3,6 +3,8 @@
    email = masterkuzutt@gmail.com
 [alias]
   co = checkout
+  sw = switch
+  rt = restore
   ci = commit
   st = status
   br = branch
