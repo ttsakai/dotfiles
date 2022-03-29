@@ -1,5 +1,5 @@
-theme = "bogster"
+theme = "solarized_dark"
  
-[lsp]
-display-messages = true
+# [lsp]
+# display-messages = true
 
