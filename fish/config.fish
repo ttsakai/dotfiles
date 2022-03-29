@@ -73,7 +73,7 @@ alias vi=nvim
 alias tf=terraform
 alias kc=kubectl
 alias kx=kubectx
-alias br=broot
+# alias br=broot
 alias gcd=gcloud
 alias gcpl='gcloud projects list'
 alias tw=the-way
@@ -91,10 +91,10 @@ function pex
 end
 # goenv
 # git clone https://github.com/syndbg/goenv.git ~/.goenv
-set -x GOENV_ROOT $HOME/.goenv
-set -x PATH $GOENV_ROOT/bin $PATH
-eval (goenv init - | source)
-set -x PATH $GOPATH/bin $PATH
+# set -x GOENV_ROOT $HOME/.goenv
+# set -x PATH $GOENV_ROOT/bin $PATH
+# eval (goenv init - | source)
+# set -x PATH $GOPATH/bin $PATH
 
 
 
