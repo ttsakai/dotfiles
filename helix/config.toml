@@ -1,5 +1,5 @@
 theme = "solarized_dark"
  
-# [lsp]
-# display-messages = true
+[editor.lsp]
+display-messages = true
 
