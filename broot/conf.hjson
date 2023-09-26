@@ -1,0 +1,41 @@
+verbs: [
+    {
+        invocation: "root"
+        key: "F9"
+        internal: ":focus /"
+    }
+    {
+        invocation: "home"
+        key: "ctrl-H"
+        internal: ":focus ~"
+    }
+    {
+        key: "alt-j"
+        internal: ":line_down"
+    }
+    {
+        invocation: "top"
+        key: "F6"
+        internal: ":select_first"
+    }
+    {
+        invocation: "bottom"
+        key: F7
+        internal: ":select_last"
+    }
+    {
+        invocation: "open"
+        key: crtl-O
+        internal: ":open_stay"
+    }
+    {
+        invocation: "edit"
+        keys: [ // several possible shortcuts here
+            F2
+            ctrl-e
+        ]
+        shortcut: "e"
+        external: "$EDITOR +{line} {file}"
+        from_shell: true
+    }
+]
