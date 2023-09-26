@@ -1,4 +1,5 @@
-default_flags = "ghi"
+default_flags = "gi"
+# icon_theme = "vscode"
 
 [[verbs]]
 invocation = "root"
@@ -53,3 +54,9 @@ execution = ":page_down"
 [[verbs]]
 key = "ctrl-u"
 execution = ":page_up"
+
+[special-paths]
+".git"= "hide"
+".terraform"= "hide"
+"node_modules/"="hide"
+

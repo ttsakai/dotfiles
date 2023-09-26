@@ -1,71 +1,40 @@
-# set -g theme_newline_cursor yes
-# set -g theme_display_git_master_branch yes
-# set -g theme_color_scheme dracula
-# set -g theme_powerline_fonts no
-# set -g theme_display_date no
-# set -g theme_display_cmd_duration no
-
-# default option for bobthefish
-set -g theme_display_git no
-set -g theme_display_git_dirty no
-set -g theme_display_git_untracked no
-set -g theme_display_git_ahead_verbose yes
-set -g theme_display_git_dirty_verbose yes
-set -g theme_display_git_stashed_verbose yes
-set -g theme_display_git_default_branch yes
-set -g theme_git_default_branches master main
-set -g theme_git_worktree_support yes
-set -g theme_use_abbreviated_branch_name yes
-set -g theme_display_vagrant yes
-set -g theme_display_docker_machine no
-set -g theme_display_k8s_context yes
-set -g theme_display_hg yes
-set -g theme_display_virtualenv no
-set -g theme_display_nix no
-set -g theme_display_ruby no
-set -g theme_display_node yes
-set -g theme_display_user ssh
-set -g theme_display_hostname ssh
-set -g theme_display_vi no
-set -g theme_display_date no
-set -g theme_display_cmd_duration yes
-set -g theme_title_display_process yes
-set -g theme_title_display_path no
-set -g theme_title_display_user yes
-set -g theme_title_use_abbreviated_path no
-set -g theme_date_format "+%a %H:%M"
-set -g theme_date_timezone America/Los_Angeles
-set -g theme_avoid_ambiguous_glyphs yes
-set -g theme_powerline_fonts no
-set -g theme_nerd_fonts yes
-set -g theme_show_exit_status yes
-set -g theme_display_jobs_verbose yes
-set -g default_user your_normal_user
-set -g theme_color_scheme dark
-set -g fish_prompt_pwd_dir_length 0
-set -g theme_project_dir_length 1
-set -g theme_newline_cursor yes
-set -g theme_newline_prompt '$ '
 
 set PATH /usr/local/bin /usr/sbin $HOME/.cargo/bin $PATH ~/.config/nvim/pack/bundle/start/fzf/bin 
 # set -x EDITOR nvim
 set -x EDITOR hx 
-set fish_function_path $fish_function_path "/usr/share/powerline/bindings/fish"
+# set fish_function_path $fish_function_path "/usr/share/powerline/bindings/fish"
 set -x GOOGLE_APPLICATION_CREDENTIALS ~/.config/gcloud/legacy_credentials/takahiro.sakai@swingmail.co/adc.json
 
 # golang
-set GOPATH $HOME/go
-set PATH $PATH /usr/local/go/bin $GOPATH/bin /Users/takahirosakai/bin
+set -x GOPATH $HOME/go
+set -x GOBIN  $HOME/go/bin
+set -x PATH $PATH /usr/local/go/bin $GOPATH/bin /Users/takahirosakai/bin
+set -x GOPRIVATE "github.com/BHIInc/*"
 
-# vagrant
-# set -x VAGRANT_WSL_WINDOWS_ACCESS_USER "desktop-ensaist\takahiro sakai"
-# set -x VAGRANT_WSL_ENABLE_WINDOWS_ACCESS "1"
-# set -x VAGRANT_WSL_WINDOWS_ACCESS_USER_HOME_PATH "/mnt/c/vagrant"
-# set PATH $PATH "/mnt/c/Program Files/Oracle/VirtualBox" /mnt/c/Windows/System32/ /mnt/c/Windows/System32/WindowsPowerShell/v1.0/
-
-powerline-setup
+# gke
+set -x USE_GKE_GCLOUD_AUTH_PLUGIN True
+set PATH /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin $PATH
 
 
+# powerline-setup
+
+
+## -- よくわからないが入れてる
+# Add pyenv executable to PATH by running
+# the following interactively:
+
+set -Ux PYENV_ROOT $HOME/.pyenv
+set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+
+# Load pyenv automatically by appending
+# the following to ~/.config/fish/config.fish:
+
+pyenv init - | source
+
+# poetry
+set -x PATH $PATH /Users/takahirosakai/.local/bin
+
+## -- 
 export VISUAL=nvim
 
 alias vim=nvim
@@ -82,6 +51,11 @@ alias tw=the-way
 fish_vi_key_bindings
 
 
+# direnv 
+eval (direnv hook fish)
+
+
+
 function gcsp
 	command gcloud config set project  $argv[1]
 end
@@ -89,26 +63,14 @@ end
 function pex
 	command pet exec -q=$argv
 end
-# goenv
-# git clone https://github.com/syndbg/goenv.git ~/.goenv
-# set -x GOENV_ROOT $HOME/.goenv
-# set -x PATH $GOENV_ROOT/bin $PATH
-# eval (goenv init - | source)
-# set -x PATH $GOPATH/bin $PATH
 
-
-
-# pyenv
-set -Ux PYENV_ROOT $HOME/.pyenv
-set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
-if command -v pyenv 1>/dev/null 2>&1
-    if status is-login && test -z "$TMUX"
-        pyenv init --path fish | source
-    end
-    pyenv init - fish | source
-    pyenv virtualenv-init - fish | source
-end
+# kubectx
+set -x KUBECTX_IGNORE_FZF 1
+set -gx PATH $PATH $HOME/.krew/bin
 
 
 # git 
 export GPG_TTY=(tty)
+
+# starship
+starship init fish | source

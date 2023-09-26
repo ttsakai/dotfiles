@@ -12,6 +12,7 @@ cp ${FILENAME} ~/.config/helix/${FILENAME}
 cp $SCRIPT_DIR/config.toml ~/.config/helix/config.toml
 
 git clone git@github.com:helix-editor/helix.git
+cd helix
 cp -r runtime/ ~/.config/helix/runtime/
 hx --grammar fetch
 hx --grammar build
