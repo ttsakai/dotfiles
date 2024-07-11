@@ -1,4 +1,5 @@
 # profiles
+test 
 repo for personal profiles . ex: .bash_profile
 
 # brew list 
