@@ -90,7 +90,7 @@ set -x KUBECTX_IGNORE_FZF 1
 set -gx PATH $PATH $HOME/.krew/bin
 
 # git 
-export GPG_TTY=(tty)
+set -x GPG_TTY (tty)
 
 # starship
 starship init fish | source

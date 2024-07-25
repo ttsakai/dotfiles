@@ -44,6 +44,12 @@ config.keys = {
     mods = 'ALT',
     action = wezterm.action.ActivatePaneDirection 'Down',
   },
+  {
+      -- This conflict with fish shell
+      key = "Enter",
+      mods = "ALT",
+      action = "DisableDefaultAssignment",
+  },
 }
 
 return config
